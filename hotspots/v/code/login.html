@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <a id="homeButton" href="index.html">Home</a>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Circle</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        html, body {
+            width: 100%;
+            background-color: rgb(234, 242, 243);
+        }
+
+        #Hotspot {
+            position: relative;
+            width: 50%;
+            height: auto; /* Make the height auto to maintain the aspect ratio */
+        }
+        #registrationInfo {
+        float: right;
+        width: 50%;
+        padding: 10px;
+        
+    }
+    </style>
+</head>
+<body>
+    
+    <img
+        id="Hotspot"
+        src="regestration.png"
+        alt="Image with hotspots"
+        usemap="#map"
+        style="width: 30%; height: auto;"
+    >
+
+    <map name="map">
+        <!--  circle with coordinates -->
+      
+        <area shape="circle" coords=" 259, 124,15" href="username.html"      alt="Clickable Area" title="user_name">
+        <area shape="circle" coords=" 58, 452,15" href="logout.html"      alt="Clickable Area" title="submit">
+        <area shape="circle" coords=" 192, 338,15" href="options.html"      alt="Clickable Area" title="sign_up">
+        <area shape="circle" coords=" 261, 180,15" href="password.html"      alt="Clickable Area" title="password">
+        
+    </map>
+    
+ 
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            let i = document.getElementById('Hotspot');
+            let image = new Image();
+            image.src = i.src;
+    
+            i.onclick = (evt) => {
+                let rect = i.getBoundingClientRect();
+                let scaleX = i.width / rect.width;
+                let scaleY = i.height / rect.height;
+    
+                let c = [
+                    (evt.clientX - rect.left) * scaleX,
+                    (evt.clientY - rect.top) * scaleY
+                ];
+    
+                alert("Coordinates: " + c.join(', '));
+            };
+        });
+    </script>
+    
+<div id="registrationInfo">
+    <p>
+        The registration form for Friends of Ngong Hills is meticulously designed to make the onboarding process smooth, user-friendly, and tailored to the needs of our community members. It serves as the initial step for individuals who are enthusiastic about joining our platform and participating in the various activities and discussions centered around the Ngong Hills.
+    </p>
+
+    <p>
+        <strong>User-Friendly Interface:</strong>
+        The registration form boasts a user-friendly interface, ensuring that the process is accessible to users of all levels of technical expertise. The layout is designed to be intuitive, guiding users through the required steps with clarity and ease.
+    </p>
+
+    <p>
+        <strong>Essential Information Collection:</strong>
+        The form collects essential information to create a personalized and secure account. This typically includes fields for a valid email address, a chosen username, and a secure password. These details are crucial for account identification and protection.
+    </p>
+
+    <p>
+        <strong>Profile Customization:</strong>
+        Beyond basic information, the registration form often includes options for users to personalize their profiles. This may include the option to upload a profile photo, add a brief bio, or select preferences that align with their interests within the Friends of Ngong Hills community.
+    </p>
+
+    <p>
+        <strong>Clear Instructions and Guidance:</strong>
+        The form provides clear instructions and guidance at each step, ensuring that users understand the information required and the purpose of each field. This clarity contributes to a positive user experience and reduces potential confusion.
+    </p>
+
+    <p>
+        <strong>Terms and Conditions Agreement:</strong>
+        As part of the registration process, users are typically asked to review and agree to the terms and conditions of using the Friends of Ngong Hills platform. This step ensures transparency and sets expectations for responsible and respectful engagement within the community.
+    </p>
+
+    <p>
+        <strong>Security Measures:</strong>
+        Security is a top priority, and the registration form includes measures such as password creation guidelines to enhance the protection of user accounts. This includes recommendations for strong and secure passwords, adding an extra layer of security.
+    </p>
+
+    <p>
+        <strong>Confirmation and Welcome Message:</strong>
+        Once the registration is successfully completed, users often receive a confirmation message or a welcome email. This message provides reassurance that the registration was successful and may include additional information on getting started and navigating the platform.
+    </p>
+
+    <p>
+        Overall, the registration form for Friends of Ngong Hills is designed to create a positive and welcoming experience for new members, emphasizing accessibility, security, and personalization. If users encounter any difficulties or have questions during the registration process, our support team is readily available to provide assistance and ensure a smooth onboarding experience.
+    </p>
+</div>
+
+    
+</body>
+</html>

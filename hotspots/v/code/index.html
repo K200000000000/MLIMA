@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clickable Circles</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(236, 242, 243);
+        }
+
+        #Hotspot {
+            position: relative;
+            width: 100%;
+            height: auto; /* Make the height auto to maintain the aspect ratio */
+        }
+
+        /* Default coordinates for larger screens (desktops) */
+        #Hotspot area {
+            coords: 78, 15, 16;
+            /* Update the rest of the coordinates accordingly */
+        }
+
+        /* Adjust coordinates for smaller screens - maximum width */
+        @media (max-width: 600px) {
+            #Hotspot area {
+                coords: 50, 50, 8; /* Adjust these values for smaller screens */
+                /* Update the rest of the coordinates accordingly */
+            }
+        }
+
+        /* Adjust coordinates for smaller screens - minimum width (example: 320px) */
+        @media (min-width: 320px) and (max-width: 600px) {
+            #Hotspot area {
+                coords: 50, 50, 6; /* Adjust these values for smaller screens */
+                /* Update the rest of the coordinates accordingly */
+            }
+        }
+
+        /* Adjust coordinates for larger screens (example: 1200px and above) */
+        @media (min-width: 1200px) {
+            #Hotspot area {
+                coords: 78, 15, 20; /* Adjust these values for larger screens */
+                /* Update the rest of the coordinates accordingly */
+            }
+        }
+    </style>
+</head>
+<body>
+    <img
+        id="Hotspot"
+        src="entirepage.png"
+        alt="Image with hotspots"
+        usemap="#map"
+        style="width: 100%; height: auto;"
+    >
+
+    <map name="map">
+        <!--  circle with coordinates -->
+        <area shape="circle" coords="78,15,16" href="logo.html" alt="Clickable Area" title="Explore The Friends of Ngong Hill">
+        <area shape="circle" coords="151,297,16" href="underconstruction.html" alt="Clickable Area" title="underconstruction">
+        <area shape="circle" coords="389,181,16" href="objectives.html" alt="Clickable Area" title="objectives">
+        <area shape="circle" coords="656,19,16" href="show_members.html" alt="Clickable Area" title="show_members">
+        <area shape="circle" coords="756,25,16" href="katiba.html" alt="Clickable Area" title="Katiba">
+        <area shape="circle" coords="862,30,16" href="show_events.html" alt="Clickable Area" title="show_events">
+        <area shape="circle" coords="962,36,16" href="messages.html" alt="Clickable Area" title="messages">
+        <area shape="circle" coords="1273,33,16" href="login.html" alt="Clickable Area" title="login">
+        <area shape="circle" coords="1135,315,16" href="user_profile.html" alt="Clickable Area" title="user_profile">
+        <area shape="circle" coords="1297,165,16" href="events.html" alt="Clickable Area" title="events">
+        <area shape="circle" coords="1486,326,16" href="date.html" alt="Clickable Area" title="date">
+        <area shape="circle" coords="1486,326,16" href="underconstruction.html" alt="Clickable Area" title="Under Construction">
+        <area shape="circle" coords="1486,426,16" href="scrollbar.html" alt="Clickable Area" title="scrollbar">
+        <area shape="circle" coords="1313,461,16" href="user_text.html" alt="Clickable Area" title="user_text">
+        <area shape="circle" coords="1205,646,16" href="frozen.html" alt="Clickable Area" title="frozen Dialog Box">
+        <area shape="circle" coords="1369,660,16" href="send.html" alt="Clickable Area" title="send">
+        <area shape="circle" coords="1369,660,16" href="user_text.html" alt="Clickable Area" title="user_text">
+    </map>
+        
+    <script>
+        /*
+        document.addEventListener("DOMContentLoaded", () => {
+            let i = document.getElementById('Hotspot');
+            let image = new Image();
+            image.src = i.src;
+    
+            i.onclick = (evt) => {
+                let rect = i.getBoundingClientRect();
+                let centerX = rect.left + rect.width / 2;
+                let centerY = rect.top + rect.height / 2;
+    
+                let radius = Math.min(rect.width, rect.height) / 2;
+    
+                // Calculate the distance from the click point to the center of the circle
+                let distanceX = evt.clientX - centerX;
+                let distanceY = evt.clientY - centerY;
+    
+                // Check if the click is within the circle
+                if (distanceX * distanceX + distanceY * distanceY <= radius * radius) {
+                    alert("Clicked inside the circle!");
+                } else {
+                    alert("Clicked outside the circle.");
+                }
+            };
+        });*/
+    </script>
+    
+</body>
+</html>

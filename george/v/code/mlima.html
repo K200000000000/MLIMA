@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mlima</title>
+        <link rel="stylesheet" href="mlima.css" />
+        <!--        <link rel="stylesheet" href="../../test/mlima_1.css" type="text/css">-->
+
+        <script type="module">
+            import { mlima } from "./mlima.js";
+            //        import { Clear_Message } from "./ClearMessage.js"; // Import the Clear_Message class
+
+            window.onload = () => {
+                const page = new mlima();
+                page.initialize_page();
+                window.page = page;
+                
+
+                //            const clearMessage = new Clear_Message();
+                //            clearMessage.clearTextAreaOnClick(); // Call the method to clear the text area
+            };
+        </script>
+    </head>
+
+    <body>
+        <!-- header-->
+        <div class="header">
+            <div id="logo">
+                <a href="https://lh3.googleusercontent.com/pw/AJFCJaXcunAaqpstkbYC5XPbcx5SkqT08Hg2TBPMIKkvS_JPHkRaW9Sfiuwa90l1zS1UX69IOVoCFp6G9zSck-uH3wxiADqZWysWzq3CBEZMNFjKZg8yyeU=w2400?source=screenshot.guru">
+                    <img alt="mlima" src="https://lh3.googleusercontent.com/pw/ADCreHdEDO5Vh1vK1QmNN13gc8MHQul2HAEmNN3WSVLdVtrbQyF3gRIzfmxp1_-zC5_giEKIIHrGKDZsmSyvpyOMEe5UXsjNMvDpy15U2nIOUNdGQw-ERcRsiYfSNVwjKVdWLl0qQLuYH2jGItQbQqtov38=w193-h129-s-no-gm?authuser=0" width="280" height="100">
+                </a>
+            </div>
+
+            <div id="title">
+                Friends Of Ngong Hills
+            </div>
+            <div>
+                <button id="Login" onclick="page.sign()">Login</button>
+                <button hidden id="sign_Out" onclick="logout()">Sign Out</button>
+                <div id="welcome"></div>
+            </div>
+        </div>
+
+        <!--services-->
+        <div id="services">
+            <div id="report" class="error"></div>
+        </div>
+
+        <!--events-->
+        <div id="event"></div>      
+
+        <!--message-->
+        <!--message-->
+        <div id="message">
+            <div class="content-small">
+                <!-- Button to initiate typing a message -->
+                <div id="message_output">
+                    <!-- Your generated HTML structure goes here -->
+                    <div>
+                        <img class="photo_photo" src="$photo">
+                        <div id="message_div">
+                            <span class="username"> ${user}</span>
+                            <span class="text">${text}</span>
+                            <span class="date" style="float: right;"> ${date}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+            <!-- Container for displaying messages -->
+        </div>
+
+
+        <!--typing-->
+        <div id="typing">
+            <h4 class="txt">Type your message</h4>
+            <br>
+            <!-- Text area for entering a message -->
+            <textarea id="message_text_area" rows="4" cols="10" disabled></textarea>
+            <!-- Button to send the message -->
+            <button onclick="page.send_message()">Send</button>
+
+        </div>
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div id="message_output">
+     Your generated HTML structure goes here 
+    <div>
+        <img class="photo_photo" src="$photo">
+        <div id="message_div">
+            <span class="username">${user}</span>
+            <span class="date">${date}</span>
+            <div class="text-container">
+                <p class="text">${text}</p>
+            </div>
+        </div>
+    </div>
+</div>-->

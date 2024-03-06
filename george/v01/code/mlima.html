@@ -1,0 +1,105 @@
+
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- 
+        The tile of your project -->
+    <title>Mlima</title>
+    <!-- 
+        Styling the index page in terms of grids -->
+    <link rel="stylesheet" href="mlima.css" />
+
+    <!--    
+    Expose the main application to HTML pages-->
+    <script>
+         function goToPage(destination) {
+      window.location.href = destination;
+    }
+      </script>
+    <script type="module">
+        //
+        //Access the mlima code (library)
+        import{mlima} from "./mlima.js";
+        //
+        //When this page loads do the following
+        window.onload = async ()=> {
+            //
+            //Create the mlima class instance, named page
+            const page = new mlima();
+            //
+            //Expose the page outside of theis script
+            window.page= page;
+            //
+            //Displaying katiba
+            await page.show_members();
+        
+        };
+    </script>
+
+</head>
+
+<body>
+    <div class="header">
+        <div id="logo">
+            <a href="https://lh3.googleusercontent.com/pw/AJFCJaXcunAaqpstkbYC5XPbcx5SkqT08Hg2TBPMIKkvS_JPHkRaW9Sfiuwa90l1zS1UX69IOVoCFp6G9zSck-uH3wxiADqZWysWzq3CBEZMNFjKZg8yyeU=w2400?source=screenshot.guru"> <img class="pik" src="https://lh3.googleusercontent.com/pw/AJFCJaXcunAaqpstkbYC5XPbcx5SkqT08Hg2TBPMIKkvS_JPHkRaW9Sfiuwa90l1zS1UX69IOVoCFp6G9zSck-uH3wxiADqZWysWzq3CBEZMNFjKZg8yyeU=w600-h315-p-k" width="280px" height="100px"> </a> 
+        </div>
+        
+        <div id="title">
+            
+          
+            <div class="btn-group">
+                <button class="button" onclick="page.show_members()">Show Members</button>
+                <button class="button" onclick="page.show_katiba()">Show Katiba</button>
+                <button class="button" > <a onclick="page.show_events('content')">Show Events</a></button>
+                <button class="button" ><a onclick="page.show_messages('content')">Show Messages</a></button>
+             
+              </div>
+         </div>
+
+        <div id="welcome">
+            <button onclick="app.current.login()">login</button>
+            
+        </div>
+    </div>
+    
+    <div id="services">
+      
+       <p>AREA UNDER MAINTENANCE</p>
+        
+    </div>
+    
+    <div id="content"></div>
+    
+    <div id="event">
+        <h2>Events </h2> 
+<details>
+    <summary><a href="https://photos.app.goo.gl/C9VhoAf3HNDGvZvLA"><p3>1st Weeding -24th June 2023</p3></a></summary>
+    The 1st weeding event to continually protect and improve the mountain ecology through good environmental conservation and management
+</details>
+<details>
+    <summary><p3>2nd Weeding -19th Aug 2023</p3></summary>
+The next Ngong hills weeding event held on the next location
+</details>
+<details>
+    <summary><p3>AGM -19th November 2023</p3></summary>
+The Annual General Meeting
+</details>
+<br>
+<button>Add an event</button>
+    </div>
+
+    <div id="message">
+<p>Please review the katiba and suggest the various ways to link the katiba to the activities</p>
+        <button>Add a message</button>
+    </div>
+
+<!--    <div id="footer">
+    <p>   Developed by <a href="munya_hub">George Munya</a> <a href="https://lh3.googleusercontent.com/pw/AIL4fc-NfpQMm1oLBE_oNl0YRkbdxRkvdH7BogisH3XD2RXpecX9h4BCc09FKrTkVmytJetZ_7_YKrKdFgRfDD2b4_CzGHkVKr2DZrlJZYZY8fKMY_bf2po=w2400?source=screenshot.guru"> <img class="pik2" src="https://lh3.googleusercontent.com/pw/AIL4fc-NfpQMm1oLBE_oNl0YRkbdxRkvdH7BogisH3XD2RXpecX9h4BCc09FKrTkVmytJetZ_7_YKrKdFgRfDD2b4_CzGHkVKr2DZrlJZYZY8fKMY_bf2po=w600-h315-p-k" /> </a>
+           &nbsp;   and <a href="kelvin_hub">Kelvin Mungai</a> <a href="https://lh3.googleusercontent.com/pw/AIL4fc9vdY_7ezUNFmA4HHJyatiwnGeSu2PFTiS2bmnY0DOgikwsQCNeA4bFzIN7PwIpRtCCt5tJB6L7UG5_5w5YKfFcrYWLwiBBDVEVTful5n6PBAhR0L0=w2400?source=screenshot.guru"> <img class="pik2" src="https://lh3.googleusercontent.com/pw/AIL4fc9vdY_7ezUNFmA4HHJyatiwnGeSu2PFTiS2bmnY0DOgikwsQCNeA4bFzIN7PwIpRtCCt5tJB6L7UG5_5w5YKfFcrYWLwiBBDVEVTful5n6PBAhR0L0=w600-h315-p-k" /> </a> </p>
+    </div>
+ -->
+</body>
+
+</html>

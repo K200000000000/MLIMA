@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Map Example</title>
+  <script>
+      //Ater the page has loadedn...
+      window.onload = ()=>{
+        
+        //Let i be the image element;
+        let i = document.getElementById('hotspot');
+        //
+        //Atach a click event listener to i
+        i.onclick = (evt)=>{
+            
+            //Let c be the coordinates
+            let c = [evt.clientX, evt.clientY];
+             
+            
+
+            alert(c);
+        };
+        
+      };
+  </script>
+  <style>
+      *{
+          margin: 0;
+      }
+      html{
+          width:100%;
+          height:100%
+      }
+      body{
+          width:100%;
+          height:100%;
+          background-color:blue;    
+      }
+      
+  </style>
+</head>
+<body>
+
+  <img 
+      id="hotspot"
+      src="Untitled.jpg" 
+      alt="Image with Hotspots" 
+      usemap="#hotspot-map"
+      height="100%"
+  >
+
+  <map id="hotspot-map" name="hotspot-map">
+    <!-- Define the clickable regions using <area> tags -->
+    <area shape="circle" coords="80,173,35" href="image.html" alt="imageggchg">
+    <area shape="circle" coords="499,382,35" href="consumer.html" alt="imagecgchjcdjh">
+
+  </map>
+</body>
+</html>
+

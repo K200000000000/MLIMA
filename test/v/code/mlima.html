@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Mlima</title>
+        <link rel="stylesheet" href="mlima.css" />
+        <!--        <link rel="stylesheet" href="../../test/mlima_1.css" type="text/css">-->
+
+        <script type="module">
+            import { mlima } from "./mlima.js";
+
+
+            window.onload = () => {
+                const page = new mlima();
+                page.initialize_page();
+                window.page = page;
+                page.MessageHandler();
+                //Displaying katiba
+                page.show_members();
+
+
+            };
+            function goToPage(destination) {
+                window.location.href = destination;
+
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <!-- header-->
+        <div class="header">
+            <div id="logo">
+                    <img alt="mlima" src="https://lh3.googleusercontent.com/pw/ABLVV84lDlQWMsMKWdod_VWMhvHUN-EwkM_pbuGAimA-A8f-VuUHyZPctw2fu7JcYHRYPjafJBuMrXZDKF69zCX2UEgya4dPUNBkQFhM58h1Wevgb1MXUN-Z7w51FjOwxby4PdaRV7A2dtkKYabcSsLD_34=w193-h129-s-no-gm?authuser=0" width="280" height="100">
+               
+            </div>
+
+            <div id="title">
+                <div id="title">
+
+
+                    <div class="btn-group">
+                        <button class="button" onclick="page.show_members()">Show Members</button>
+                        <button class="button" onclick="page.show_katiba()">Show Katiba</button>
+                        <button class="button" > <a onclick="page.show_events('content')">Show Events</a></button>
+                        <button class="button" ><a onclick="page.show_messages('content')">Show Messages</a></button>
+
+                    </div>
+                </div>
+            </div>
+            <div>
+                <button id="Login" onclick="page.sign()">Login</button>
+                <button hidden id="sign_Out" onclick="logout()">Sign Out</button>
+                <div id="welcome"></div>
+            </div>
+        </div>
+
+        <!--services-->
+        <div id="services">
+            <div id="report" class="error"></div>
+        </div>
+
+        <!--events-->
+        <div id="event"></div>      
+
+        <!--message-->
+        <!--message-->
+        <div id="message">
+        </div>
+
+
+        <!--typing-->
+        <div id="typing">
+            <h4 class="txt">Type your message</h4>
+            <br>
+            <!-- Text area for entering a message -->
+            <textarea id="message_text_area" rows="4" cols="10" disabled></textarea>
+            <!-- Button to send the message -->
+            <button id="sendButton" onclick="page.send_message()">Send</button>
+        </div>
+        <div id="content"></div>
+
+        <script>
+            // Assuming 'page' is an object with a 'send_message' method
+            var page = {
+                send_message: function () {
+                    // Your existing send_message function logic here
+
+                    // Clear the text area after the button is clicked
+                    document.getElementById("message_text_area").value = '';
+                }
+            };
+        </script>
+
+
+
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+

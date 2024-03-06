@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+    <!--
+    This member version demonstrates the io concept    
+    -->
+    <head>
+        <title>Edit Mlima Member</title>
+        
+        <link rel="stylesheet" href="member.css" />
+
+        <script type="module">
+
+            //Imports from the mutall_data library
+            import {myalert} from "../../../outlook/v/code/view.js"         
+            import {member} from "./member.js";
+            //
+            //The ios used in this example 
+            import {url, image, checkbox} from "./io.js"; 
+            //
+            //After loading this page modify and save the following data:-
+            window.onload = async()=>{
+                //
+                //Let Iemmber be the test mlima member data to modify
+                const Imember = {
+                    member:1,
+                    photo:{url:"/mlima/images/members/peter k. muraya.jpg", destination:"/mlima/images/members/"},
+                    name: "Muraya",
+                    email: "peterkmuraya@gmail.com",
+                    phone: "0733902389",
+                    title:  '["mr","hon"]',
+                    gender: "male",
+                    registration_id: "024",
+                    national_id: "2302589",
+                    occupation: "Computer Scientist",
+                    business_url: {textContent:"Mutall Investiment Company", href:"http://localhost/metavisuo/v/code/metavisuo.html"},
+                    comment: "This is a test record"
+                };
+                //
+                //Create a new member page
+                const page = new member(Imember);
+                //
+                //Make the variables available outside of this script
+                window.page = page;
+                window.url = url;
+                window.image=image;
+                window.checkbox=checkbox;
+                //
+                //Modify the given Iemmeber and save it to the mlima database,
+                //returning the edited result
+                const result /*:Imember|undefined*/ = await page.administer();
+
+                //
+                //Report the result
+                if (result) myalert(`<pre>${JSON.stringify(result, null, 2)}</pre>`); 
+                else alert("Failed");
+            };
+            
+        </script>
+    </head>
+
+    <!--
+        The default entity name for this form is the member table in the mlima
+        database-->
+    <body data-ename="member">
+        <!--
+            This is the read-only member field for supporting updates --> 
+        <label id="member">
+            Member
+            <input type="number" name="member" disabled/>
+        </label>
+        <!-- 
+        Profile Picture (with custom data, destination)-->
+        <label id="photo" data-destination="/mlima/images/members">
+            Photo:
+            <!--
+                Use the preview utility developed by George-->
+            <input type="file" name="photo" onchange="image.onchange(this)" accept="image/*" />
+            <!--
+            Constrain the image to 10% of screen-->
+            <img alt="Preview">
+        </label>
+
+        <!-- 
+        Name -->
+        <label id="name">Name:
+            <input name="name" type="text" size="20" required>
+        </label>
+
+        <!-- 
+        Email -->
+        <label id="email">Email:
+            <input type="email" name="email" size="20" required>
+        </label>
+
+        <!-- Title -->
+        <div id="title">Title:
+            <input type="checkbox" name="title" value="mr"/>Mr.
+            <input type="checkbox" name="title" value="mrs"/>Mrs.
+            <input type="checkbox" name="title" value="ms"/>Ms.
+            <input type="checkbox" name="title" value="prof"/>Prof.
+            <input type="checkbox" name="title" value="dr"/>Dr.
+            <input type="checkbox" name="title" value="eng"/>Eng.
+            <input type="checkbox" name="title" value="abas"/>Abas.
+            <input type="checkbox" name="title" value="hon"/>Hon.
+
+            <!--
+            If checked, the input text will be hidden; otherwise it will
+            show-->
+            <fieldset class="other">
+                <legend>
+                    <label>
+                        <!--
+                        The listener uses the fluctuate utility developed by
+                        Maggie and Mogaka-->
+                        <input 
+                            type="checkbox" 
+                            name="title" 
+                            value="other"
+                            onchange="checkbox.onchange(this)"/>
+                        Other
+                    </label>
+                </legend>
+                <span hidden>Specify</span><input type="text" size="4" hidden/>
+            </fieldset>
+        </div>
+
+        <!-- Gender -->
+        <div id="gender">Gender:
+            <input type="radio" name="gender" value="male"> Male
+            <input type="radio" name="gender" value="female"> Female
+        </div>
+
+        <!-- Registration ID -->
+        <label id="registration_id">Registration ID:
+            <input type="text" name="registration_id" size="5">
+        </label>
+
+        <!-- Phone Number -->
+        <label id="phone">Mobile:
+            <input type="text" name="phone" maxlength="15" size="20" required>
+        </label>
+
+        <!-- National ID -->
+        <label id="national_id">National ID:
+            <input type="text" name="national_id" maxlength="10" size="10">
+        </label>
+
+        <!-- Occupation -->
+        <label id="occupation">Occupation:
+            <input type="text" name="occupation" maxlength="10" size="15">
+        </label>
+
+        <!-- Business name and URL -->
+        <fieldset id="business_url">
+            <legend>Business Name and Website Link</legend>
+            <label>
+                Name: <input type="text" name="business_url" maxlength="255" size="50" oninput="url.oninput(this)">
+            </label>
+            <label>
+                <!--
+                Use the utility developled by Munya to minitor the input-->
+                URL: <input type="url" name="business_url" oninput="url.oninput(this)" size="100">
+            </label>            
+            <a href="">Click me</a>
+        </fieldset>
+
+
+        <!-- Comment -->
+        <label id="comment">Comment:
+            <textarea name="comment"></textarea>
+        </label>
+
+        <button id="submit">Submit</button>
+        <button id="cancel">cancel</button>
+
+    </body>
+
+</html>

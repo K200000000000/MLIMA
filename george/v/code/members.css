@@ -1,0 +1,8 @@
+/* styling mebers html to display in page fashion */
+body{
+    display:flex;
+    flex-wrap: wrap;
+}
+.pic{
+    height:30%;
+}

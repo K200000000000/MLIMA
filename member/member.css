@@ -1,0 +1,10 @@
+/*
+Display labels as blocks*/
+label{display:block;}
+
+/*
+The image is a 10th of the body*/
+img{
+    height:160px;
+    display:block;
+}

@@ -1,0 +1,293 @@
+html {
+    height: 100%;
+    width: 100%;
+}
+
+* {
+    border-radius: 5px;
+}
+
+
+/*Grid design and styling procedure*/
+
+body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 4fr 1fr;
+    /* represents a fraction of the available space in the grid container */
+    grid-template-rows: 20% 40% 30% 10%;
+    grid-template-areas: "header header header""services content event""services content message""footer footer footer";
+}
+
+.header {
+    grid-area: header;
+    display: grid;
+    grid-template-columns: 30% 40% 30%;
+    grid-template-areas: "logo title welcome";
+    flex-direction: row;
+    background-color: lightgoldenrodyellow;
+}
+
+#logo {
+    grid-area: logo;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+#welcome {
+    grid-area: welcome;
+    /* overflow: scroll; */
+    overflow-x: hidden;
+}
+
+#services {
+    grid-area: services;
+    background-color: lightgoldenrodyellow;
+    line-height: 1.5;
+    overflow: auto;
+    resize: horizontal;
+    /* allows one to resize the grid area horizontally */
+}
+
+#content {
+    grid-area: content;
+    height:100%;
+    background-color: white;
+    overflow: auto;
+
+}
+/*styling the pic container to be a third of the page*/
+.pic {
+    height:33.3%;
+    margin-bottom: 10px;
+    background-color: lightgreen;
+    margin-right: 20px;
+    animation: vertical-flow 40s linear 2s  infinite ;
+    position:relative;
+}
+/*styling the image to occupy 60%of the pic container*/
+.pic> img{ 
+  height:60%;
+  text-align: center;
+}
+.pic> p{
+    height:10%;
+}
+
+/*
+styling the katiba separately to display in block*/
+.constitution{
+    display: block
+}
+/*
+styling the member details derived from database to display in flex(fill the first row then go to the other) */
+.members{
+    display:flex;
+    flex-wrap: wrap;
+    height: 100%;
+}
+/* animating the images to flow vertically to counter scrolling*/
+@keyframes vertical-flow{
+    0%{
+        transform: translateY(0);
+    }
+    100%{
+        transform:translateY(-1650%);
+    }
+}
+#space{
+ margin-left: 4px;   
+}
+
+.pik2{
+    width: 60px;
+    height: 40px;
+    border-radius: 100px;
+}
+.pik3{
+    display: none;
+}
+.btn-group .button {
+    background-color: #4caf4fe7; 
+    border: none;
+    color: white;
+    padding: 5px 2px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+  
+  }
+  
+  .btn-group .button:hover {
+    background-color: #3e4d8e;
+  }
+
+#footer{
+    grid-area: footer;
+    background-color: rgba(43, 226, 226, 0.473);
+}
+
+/*members images*/
+.pic > img{
+    height: 200px;
+    margin-bottom: 5px;
+    background-color: lightgreen;
+    margin-right: 20px;
+}
+
+/*
+styling the katiba separately to display in block*/
+.constitution{
+    display: block
+}
+/*
+styling the member details derived from database to display in flex(fill the first row then go to the other) */
+.members{
+    display:flex;
+    flex-wrap: wrap;
+    height: 30%;
+}
+#event {
+    grid-area: event;
+    background-color: lightblue;
+    overflow: auto;
+    resize: both;
+    /* allows one to resize the grid area horizontally and vertically */
+    min-width: 220px;
+    max-width: 800px;
+    min-height: 138px;
+    max-height: 280px;
+}
+
+#message {
+    grid-area: message;
+    background-color: lightcyan;
+    overflow: auto;
+    resize: both;
+    /* allows one to resize the grid area horizontally and vertically  */
+    min-width: 220px;
+    max-width: 800px;
+    min-height: 138px;
+    max-height: 300px;
+}
+
+/*
+An anchor tag without a href*/
+a{
+    text-decoration: underline;
+    color: blue;
+    font-weight: bold;
+}
+
+/* 
+Convert the cursor to a pointer. */
+a:hover {
+    cursor: pointer;
+}
+
+/*
+Ancho tags undrer services shoul be diaplayes in their own lines*/
+#services>a{
+    display:block;
+}
+
+
+/*
+Tame select tag's properties */
+#selection {
+    width: auto;
+}
+
+details>details, details>div{
+    margin-left: 30px;
+}
+
+/* media query with content only */
+
+@media all and (max-width:600px) {
+    body {
+        height: auto;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        grid-template-columns: 60% 40%;
+        grid-template-rows:20% 30% 40% 10% ;
+        grid-template-areas: "header header""content content""content content""footer footer";
+    }
+
+    .header {
+        display: grid;
+        grid-area: header;
+        grid-template-columns: 88% 12%;
+        grid-template-rows: 100%;
+        grid-template-areas: "title welcome";
+        padding: 5px
+    }
+
+    #logo {
+        grid-area: logo;
+        display: none;
+    }
+
+    #selection {
+        height: fit-content;
+        width: fit-content;
+    }
+
+    #services {
+        grid-area: services;
+        display: none;
+        
+    }
+
+#title{
+    grid-area: title;
+
+}
+
+#welcome {
+    grid-area: welcome;
+    
+}
+
+.pik{
+    width: 150px;
+    height: 130px;
+}
+.pik2{
+    height: 30px;
+    width: 30px;
+}
+.pik3{
+    display: block;
+    width: 60px;
+    height: 70px;
+}
+p{
+    font-size: 15px;
+}
+.footer{
+    grid-area: footer;
+}
+.btn-group .button{ 
+    border: none;
+    color: rgba(252, 252, 252, 0.76);
+    padding: 7px 5px;
+    display: inline-block;
+    font-size: 11px;
+}
+
+    #message {
+        display: none;
+    }
+
+    #event {
+        display: none;
+    }
+
+}
